@@ -13,7 +13,7 @@ pipeline {
                 }
             }
         }
-        stage ('Deploy to Staging'){
+        stage ('Deploy to Production'){
             steps {
                 build job: 'PipelineAsCode-DeployToProduction'
             }
