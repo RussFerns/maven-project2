@@ -1,4 +1,4 @@
-/* Jenkinsfile to test Maven-Git-Tomcat build & deployment */
+/* Jenkinsfile version 2 to test Maven-Git-Tomcat build & deployment */
 pipeline {
     agent any
     stages{
@@ -11,6 +11,11 @@ pipeline {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
+            }
+        }
+        stage ('Deploy to Staging'){
+            steps {
+                build job: 'PipelineAsCode-DeployToStaging'
             }
         }
     }
