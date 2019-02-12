@@ -1,4 +1,3 @@
-/* Jenkinsfile version 2 to test Maven-Git-Tomcat build & deployment */
 pipeline {
     agent any
     stages{
