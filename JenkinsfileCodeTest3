@@ -25,19 +25,13 @@ pipeline {
             }
         }
 
-        stage ('Inspect Staging before Approval'){
-            steps {
-                build job: 'Test-Maven-PipelineAsCode-2C Production'
-            }
-        }
-
         stage ('Deploy to Production'){
             steps{
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                build job: 'Test-Maven-PipelineAsCode-2D Production'
+                build job: 'Test-Maven-PipelineAsCode-2C Production'
             }
             post {
                 success {
@@ -51,5 +45,5 @@ pipeline {
         }
 
     }
-
+    
 }
